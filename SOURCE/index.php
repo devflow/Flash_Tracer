@@ -87,7 +87,7 @@ textarea, input, td {
 <body>
 <div id="info_bottom" style="text-align:center">
 <br />
-<a href="/lab/flashtracer/index.php"><img src="logo.png" /></a>
+<a href="index.php"><img src="logo.png" /></a>
 <h2>v1.0</h2><p><br />
   
   
@@ -96,12 +96,11 @@ textarea, input, td {
 	if(!empty($ebmedcode)) {
 
 	preg_match_all('/xml=([^"]*)&/i',$ebmedcode,$matches);
-	
-	//print_r($matches[1][0]);
+
 	if( empty($matches[1][0]) ) {
 		preg_match_all('/file=([^"]*)&/i',$ebmedcode,$matches);
 		if( empty($matches[1][0]) ) {
-			echo '잘못되거나 지원하지 않는 embed 코드입니다.';
+			echo 'Unknown Embed code.';
 			exit(0);
 		}
 	}
@@ -125,19 +124,15 @@ textarea, input, td {
 <p>&nbsp;</p>
 
 </p>
-<form id="form1" name="form1" method="post" action="/lab/flashtracer/index.php">
+<form id="form1" name="form1" method="post" action="index.php">
 <p>[embed code]</p>
   <p>
     <textarea name="embed" id="embed" cols="45" rows="5"></textarea>
   </p>
   <p>
-    <input type="submit" value="주소불러오기" />
+    <input type="submit" value="Load Videos" />
   </p>
 </form>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>Visit <a href="http://lab.devflow.kr">devflowlab</a></p>
-<p>(C)Copyright All Reserved By <a href="http://devflow.kr">devflow</a></p>
 <p>&nbsp;</p>
 </div>
 </body>
